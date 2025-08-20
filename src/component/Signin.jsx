@@ -2,8 +2,8 @@ import React from 'react'
 
 const Signin = () => {
   return (
-    <div>
-      
+    <div class='signIn'>
+      this is the sign in page
     </div>
   )
 }

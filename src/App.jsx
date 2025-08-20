@@ -1,5 +1,9 @@
 import TopPage from "./component/TopPage"
 import './app.css'
+import { Route, Routes } from "react-router-dom"
+import Signup from "./component/Signup"
+import Signin from "./component/Signin"
+
 
 function App() {
 //  let searchSentence = 'this is the man he has a leg'
@@ -18,7 +22,12 @@ function App() {
 
   return (
     <>
-      <TopPage/>
+      
+      <Routes>
+        <Route path="/" element={<TopPage/>} />
+        <Route path="/signIn" element={<Signin/>} />
+        <Route path="/signUp" element ={<Signup/>} />
+      </Routes>
     </>
   )
 }

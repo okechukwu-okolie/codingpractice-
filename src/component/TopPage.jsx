@@ -6,8 +6,8 @@ const TopPage = () => {
     <div class='topPage'>
         <h1 class='topPage-title'>SCHEDULER <span class='pro'>PRO</span></h1>
         <div class='topPage-buttons'>
-            <Link><button class='topPage-btn1'>Sign Up</button></Link>
-            <button class='topPage-btn2'> Sign In</button>
+            <Link to='/signUp'><button class='topPage-btn1'>Sign Up</button></Link>
+            <Link to='/signIn'><button class='topPage-btn2'> Sign In</button></Link>
         </div>
     </div>
   )
