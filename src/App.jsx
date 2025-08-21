@@ -1,8 +1,8 @@
 import TopPage from "./component/TopPage"
 import './app.css'
 import { Route, Routes } from "react-router-dom"
-import Signup from "./component/Signup"
-import Signin from "./component/Signin"
+import Signup from "./component/signUp/Signup"
+import Signin from "./component/signIn/Signin"
 
 
 function App() {
