@@ -3,6 +3,7 @@ import './app.css'
 import { Route, Routes } from "react-router-dom"
 import Signup from "./component/signUp/Signup"
 import Signin from "./component/signIn/Signin"
+import Scheduler from "./component/scheduler/Scheduler"
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/" element={<TopPage/>} />
         <Route path="/signIn" element={<Signin/>} />
         <Route path="/signUp" element ={<Signup/>} />
+        <Route path="/scheduler" element={<Scheduler/>}/>
       </Routes>
     </>
   )

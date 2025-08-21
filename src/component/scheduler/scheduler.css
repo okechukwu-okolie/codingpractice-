@@ -1,0 +1,21 @@
+.scheduler-main{
+    background-color: rgb(36, 156, 150);
+    height: 100vh;
+    overflow:auto;
+}
+.scheduler-home{
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+.scheduler-home input{
+    width: 70%;
+    outline: none;
+    margin: 50px 0px;
+    padding: 14px 5px;
+    border-radius: 8px;
+    overflow: auto;
+}
+.schedule-ul{
+    border:solid 1px slategrey;
+}
