@@ -101,7 +101,7 @@ function App() {
     setIsAlarmSet(false);
   };
 
-  return (   
+  return (         
     <div className="app-container">
       <h1>My To-Do App</h1>
 
