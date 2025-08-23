@@ -15,6 +15,6 @@ const TodoList = ({ todos, onToggle, onDelete }) => {
       ))}
     </ul>
   );
-};
+};       
 
 export default TodoList;

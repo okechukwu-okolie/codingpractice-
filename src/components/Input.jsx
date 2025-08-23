@@ -1,17 +1,27 @@
-import React from 'react'
+import React,{useState} from 'react'
 
 
-const Input = () => {
+const Input = ({addInputValue}) => {
 
+   const [inputValue, setInputValue] = useState('')
 
-    const {addSchedule,} = todoApphooks()
+    const submit = (e) =>{
+      e.prevent.default()
+      addInputValue(inputValue)
+    }
   return (
     <div>
-      <input type="text" 
-        value={}
-        />
+     <form onSubmit={submit}>
+      <input type="text"
+            value={inputValue}
+            onChange={(e)=>setInputValue(e.target.value)}
+             />
+
+             <button type='submit'>Add Schedule</button>
+     </form>
     </div>
   )
 }
 
 export default Input
+     

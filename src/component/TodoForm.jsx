@@ -17,7 +17,7 @@ const TodoForm = ({ onAdd }) => {
       <input
         type="text"
         value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
+        onChange={(e) => setInputValue(e.target.value)}       
         placeholder="Add a new task"
       />
       <button type="submit">Add</button>

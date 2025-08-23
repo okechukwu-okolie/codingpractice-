@@ -1,7 +1,7 @@
 export const scheduleAlarm = (todo) => {
   if (!todo.isAlarmSet || !todo.dueDate) {
     return;
-  }
+  }          
 
   const alarmTime = new Date(todo.dueDate).getTime();
   const now = new Date().getTime();
@@ -30,6 +30,6 @@ export const scheduleAlarm = (todo) => {
 // Request notification permission from the user
 export const requestNotificationPermission = () => {
   if ('Notification' in window) {
-    Notification.requestPermission();
+    Notification.requestPermission();//find out if this is a windows based functions and others like it.
   }
 };
