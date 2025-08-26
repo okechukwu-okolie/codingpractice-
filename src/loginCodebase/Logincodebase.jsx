@@ -309,6 +309,10 @@ const Register = () => {
 };
 
 export default Register;
+
+
+
+
 File: src/Login.js
 JavaScript
 
@@ -368,6 +372,11 @@ const Login = () => {
 };
 
 export default Login;
+
+
+
+
+
 File: src/Dashboard.js
 JavaScript
 
