@@ -16,20 +16,21 @@ const SignIn = () => {
 
 
     const submit = (e) =>{
+
         e.preventDefault
-        if(username === savedUsername && password === savedPassword){
-            setError(error)
-            setMessage('Welcome to the SCHEDULER')
-             setInterval(() => {
+        if(username  && password ){
+            
+            setInterval(() => {
                 navigate('/')
             }, 5000);
         }
         setError(!error)
-        setMessage()
+        return setMessage('the username and password you provided are incorrect')
     }
   return (
     <main>
         <form onSubmit={submit}>
+
             <input type="text"
                 value={username}
                 onChange={(e)=>setUsername(e.target.value)}
@@ -43,8 +44,9 @@ const SignIn = () => {
 
                 <button type='submit'>enter</button>
         </form>
-      {error ?`${message}`:`${message}`}
+      {error ?<p style={{color:'green'}}>{message}</p>:<p style={{color:'red'}}>{message}</p>}
       <Link to='/signup'> Click here to register</Link>
+      <Link to='/'>to main dashboard</Link>
 
     </main>
   )
