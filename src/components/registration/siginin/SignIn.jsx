@@ -10,22 +10,24 @@ const SignIn = () => {
     const [message, setMessage] =useState('')
 
 
-    const savedUsername = localStorage.getItem('savedUsername')
-    const savedPassword = localStorage.getItem('savedPassword')
+    const savedUser = localStorage.getItem('savedUsername')
+    const savedPass = localStorage.getItem('savedPassword')
     const navigate = useNavigate()
 
 
     const submit = (e) =>{
 
-        e.preventDefault
-        if(username  && password ){
+        e.preventDefault()
+        console.log(savedPass)
+        if(username !== savedUser && password !== savedPass ){
             
-            setInterval(() => {
-                navigate('/')
-            }, 5000);
+          setError(!error)
+          return setMessage('the username and password you provided are incorrect')
         }
-        setError(!error)
-        return setMessage('the username and password you provided are incorrect')
+        setInterval(() => {
+          console.log('error')
+            navigate('/')
+        }, 2000);
     }
   return (
     <main>
