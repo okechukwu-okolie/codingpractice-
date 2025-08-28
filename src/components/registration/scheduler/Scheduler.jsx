@@ -30,6 +30,12 @@ const Scheduler = () => {
       navigate('/signin')
     }
 
+    const deleteOne = (id) =>{
+      setSchedulerList(schedulerList.filter((list)=>
+        list.id !== id 
+      ))
+    }
+
 
 
   return (
@@ -49,7 +55,7 @@ const Scheduler = () => {
 
                 <ul>
                   {schedulerList.map((list)=>
-                  <li key={list.id}>{list.text} <span><BiEdit/></span><span><BiTrash/></span> </li>
+                  <li key={list.id}>{list.text} <span><BiEdit/></span><span><BiTrash onClick={deleteOne}/></span> </li>
                   )}
                 </ul>
     </main>
