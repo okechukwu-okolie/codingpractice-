@@ -15,7 +15,7 @@ const Scheduler = () => {
     const [edit, setEdit] = useState(null)
     const navigate = useNavigate()// this varuable is used for navigating within javascript
 
-    
+    //this is the form function that keeps theoutput from just disappearing
     const submit = (e) =>{
       e.preventDefault()
     

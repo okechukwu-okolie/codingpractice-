@@ -31,10 +31,13 @@ const SignIn = () => {
           return setMessage('the username and password you provided are incorrect')
         }
 
-        const decryptUsername = CryptoJS.AES.decrypt('savedUser',"!@#$123").toString(CryptoJS.enc.Utf8);
-        console.log(decryptUsername)
+        // const decryptUsername = CryptoJS.AES.decrypt('savedUser',"!@#$123").toString(CryptoJS.enc.Utf8);
+        // console.log(decryptUsername)
+
+        const bytes = CryptoJS.AES.decrypt(savedUser, "!@#$123");
+        const originalText = bytes.toString(CryptoJS.enc.Utf8);
      
-        if (username !== decryptUsername){
+        if (username !== originalText){
           
           console.log('wrong username inputed.')
           return;
