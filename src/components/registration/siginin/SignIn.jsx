@@ -43,11 +43,11 @@ const SignIn = () => {
           return;
         }
         console.log('test passed')
+          navigate('/')
 
-
-        setInterval(() => {
-            navigate('/')
-        }, 5000);
+        // setInterval(() => {
+        //     navigate('/')
+        // }, 5000);
 
     }
       const eyeClick = () =>{
