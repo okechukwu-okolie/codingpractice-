@@ -81,7 +81,7 @@ const Scheduler = () => {
                 <ul>
                   {schedulerList.map(list=>
                   <li key={list.id} id='listLine'>{list.text} <span><BiEdit onClick={()=>handleEdit(schedulerList,list,list.id)} /></span> <span><BiTrash onClick={()=>deleteOne(list.id)}/> </span> </li>
-                  )}
+                  )} 
                 </ul>
     </main>
   )
