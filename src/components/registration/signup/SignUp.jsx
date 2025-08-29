@@ -3,7 +3,7 @@ import { useNavigate,Link } from 'react-router-dom'
 import './signup.css'
 import { EyeFilled, EyeInvisibleFilled } from '@ant-design/icons'
 import { BiUser } from 'react-icons/bi'
-import { MdEmail } from 'react-icons/md'
+import CryptoJS from 'crypto-js'
 import { TfiEmail } from 'react-icons/tfi'
 
 const SignUp = () => {
@@ -25,29 +25,22 @@ const SignUp = () => {
          return  setMessage('....Please provide your username and password')
         }
 
-        const digit = /^\d+\w+[a-zA-Z0-9_]$/
-        const letter = /^\w$/
-        // console.log(digit.test(password))
-        // if(password !== passwordPattern ){
+        const cypherUsername = CryptoJS.AES.encrypt(username, "!@#$123").toString()
+        setUsername(cypherUsername)
+        console.log(username)
+        console.log(cypherUsername)
 
-        // }
 
-        // const Username = 
-        localStorage.setItem('savedUsername', username)
-      //  const Password =  
-       localStorage.setItem('savedPassword',password)
+        
+        localStorage.setItem('savedUsername', cypherUsername)
+        localStorage.setItem('savedEmail', email)
+        localStorage.setItem('savedPassword',password)
+
+
         setCredential(!credential)
         setMessage('.....Successfully signed in')
 
-        // const individualCredential = {
-        //   id: Date.now(),
-        //   username:Username,
-        //   password:Password,
-        // }
-
-        // setUserCredentialList([...userCredentialList, individualCredential])
-        // console.log(setUserCredentialList)
-
+      
 
         setInterval(() => {
                   navigate('/signin')
