@@ -6,7 +6,8 @@ const schedulerInput = document.getElementById('schedulerInput')
 const addBtn = document.getElementById('addBtn')
 
 
-const Scheduler = () => {
+const Scheduler = () => {          
+  
     const [schedule, setSchedule] = useState('')//this is the input for the scheduler
     const [error, setError] = useState('')//this displays error message when no input text
     const [schedulerList, setSchedulerList] = useState([])//this holds the array

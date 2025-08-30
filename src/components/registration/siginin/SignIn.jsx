@@ -6,7 +6,8 @@ import CryptoJS from 'crypto-js'
 
 
 
-const SignIn = () => {
+const SignIn = () => {      
+
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState(false)
@@ -43,7 +44,7 @@ const SignIn = () => {
           return;
         }
         console.log('test passed')
-          navigate('/')
+          navigate('/home')
 
         // setInterval(() => {
         //     navigate('/')
@@ -76,7 +77,7 @@ const SignIn = () => {
         </form>
       {error ?<p style={{color:'green'}}>{message}</p>:<p style={{color:'red'}}>{message}</p>}
       <Link to='/signup'> Click here to register</Link>
-      <Link to='/'>to main dashboard</Link>
+      <Link to='/home'>to main dashboard</Link>
 
     </main>
   )

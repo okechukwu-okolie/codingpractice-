@@ -7,6 +7,8 @@ import CryptoJS from 'crypto-js'
 import { TfiEmail } from 'react-icons/tfi'
 
 const SignUp = () => {
+
+
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
@@ -43,7 +45,7 @@ const SignUp = () => {
       
 
         setInterval(() => {
-                  navigate('/signin')
+                  navigate('/home')
                 }, 2000);
             }
 
