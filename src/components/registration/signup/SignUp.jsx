@@ -5,6 +5,7 @@ import { EyeFilled, EyeInvisibleFilled } from '@ant-design/icons'
 import { BiUser } from 'react-icons/bi'
 import CryptoJS from 'crypto-js'
 import { TfiEmail } from 'react-icons/tfi'
+import WithdrawalScheduler from '../../withdrawalScheduler/WithdrawalScheduler'
 
 const SignUp = () => {
 
@@ -56,6 +57,7 @@ const SignUp = () => {
 
   return (
     <main>
+      <WithdrawalScheduler/>
       <form onSubmit={submit} style={{display:'flex',gap:'10px'}}>
 
         {/* username of the user */}
@@ -92,6 +94,8 @@ const SignUp = () => {
       </form>
       {credential ? <p style={{ color: 'green' }}>{message}</p> : <p style={{ color: 'red' }}>{message}</p>}
       <p>Already have an account? <Link to='/signin'>Click here to sign in</Link></p>
+
+
     </main>
   )
 }
