@@ -1,190 +1,124 @@
-import React,{useState} from 'react'
-import { FcLeft } from 'react-icons/fc'
-
-const WithdrawalScheduler = () => {
-    const [amount, setAmount] = useState('')
-    const [day, setDay] = useState(false)
-    const [week, setWeek] = useState(false)
-    const [month, setMonth] = useState(false)
-    const [threeMonths, setThreeMonths] = useState(false)
-    const [sixMonths, setSixMonths] = useState(false)
-    const [nineMonths, setNineMonths] = useState(false)
-    const [oneYear, setOneYear] = useState(false)
-    const [youDecide, setYouDecide] = useState(false)
-    const [user, setUser] = useState([])
 
 
 
+import React, { useState } from 'react';
 
+// A mock database to store saved savings data
+const mockDatabase = [];
 
-    const submit = (e) =>{
-        e.preventDefault()
-        const repetition =(!day || !week || !month)
-        const duration = (!threeMonths || !sixMonths || !nineMonths || !oneYear || !youDecide)
+function WithdrawalScheduler() {
+  // State variables to hold form data and validation errors
+  const [amount, setAmount] = useState('');
+  const [frequency, setFrequency] = useState('');
+  const [duration, setDuration] = useState('');
+  const [savedData, setSavedData] = useState([]);
+  const [error, setError] = useState('');
 
-        if (amount.trim() === '' && !repetition && !duration){
-            console.log('provide an amount to schedule for saving')
-            return; 
-        }
-    console.log( 'satisfied')
-  
-    return ('conditions have been satisfied')
-        const userChoice = (amount, repetition, duration) =>{
+  // Function to handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setError(''); // Clear previous errors
 
-            const userDetails = {
-                amount,
-                repetition,
-                duration
-        }
-        setUser([...user, userDetails])
-        setAmount('N0')
-        setDay(false)
-        setWeek(false)
-        setMonth(false)
-        setThreeMonths(false)
-        setSixMonths(false)
-        setNineMonths(false)
-        setOneYear(false)
-        setYouDecide(false)
-        }
-       
+    // Logical checks to ensure all fields are present
+    if (!amount || !frequency || !duration) {
+      setError('Please fill out all fields: Amount, Frequency, and Duration.');
+      return;
     }
-      const handleAmount = (e) =>{
-            setAmount(e.target.value)
-        }
-        const handleDay =() =>{
-            setDay(!day)
-           
-                setWeek(week)
-                setMonth(month)
-                // setDay(!day)
-                console.log('day has been handled')
-                return ;
-            
-        }
 
-        const handleWeek =()=>{
-        setWeek(!week)
-        setMonth(month)
-        setDay(day)
-        setWeek(!week)
-        console.log('week has been handled')
-        return
-  
-        }
+    // Create the new saving object
+    const newSaving = {
+      id: Date.now(), // Unique ID for the object
+      amount: parseFloat(amount),
+      frequency,
+      duration,
+      dateAdded: new Date().toISOString(),
+    };
 
-        const handleMonth = ()=>{
-            setMonth(!month)
-          
-            setWeek(week)
-            setDay(day)
-            setMonth(!month)
-            
-           console.log ('month has been handled')
-            return;
-        }
+    // Add the new saving object to our state array
+    setSavedData((prevData) => [...prevData, newSaving]);
 
-        const handleSixMonths =()=>{
-            setSixMonths(!sixMonths)
-            if(sixMonths){
-                setThreeMonths(threeMonths)
-                setSixMonths(!sixMonths)
-                setNineMonths(nineMonths)
-                setOneYear(oneYear)
-                setYouDecide(youDecide)
-                
-                alert ('sixMonths have been handled')
-            }
-        }
-         const handleNineMonths =()=>{
-            setNineMonths(!nineMonths)
-            if(nineMonths){
-                setThreeMonths(threeMonths)
-                setSixMonths(sixMonths)
-                setNineMonths(!nineMonths)
-                setOneYear(oneYear)
-                setYouDecide(youDecide)
-                
-                alert ('nineMonths have been handled')
-            }
-        }
+    // Simulate submitting to a database
+    // In a real application, you would make an API call here (e.g., using fetch or axios)
+    mockDatabase.push(newSaving);
+    console.log('Data submitted to mock database:', mockDatabase);
 
-         const handleOneYear =()=>{
-            setOneYear(!oneYear)
-            if(oneYear){
-                setThreeMonths(threeMonths)
-                setSixMonths(sixMonths)
-                setNineMonths(nineMonths)
-                setOneYear(!oneYear)
-                setYouDecide(youDecide)
-                
-                alert ('oneYear have been handled')
-            }
-        }
-
-         const handleYouDecide =()=>{
-            setYouDecide(!youDecide)
-            if(youDecide){
-                setThreeMonths(threeMonths)
-                setSixMonths(sixMonths)
-                setNineMonths(nineMonths)
-                setOneYear(oneYear)
-                setYouDecide(!youDecide)
-                
-                alert ('youDecide have been handled')
-            }
-        }
-
-         const handleThreeMonths =()=>{
-            setThreeMonths(!threeMonths)
-            if(threeMonths){
-                setThreeMonths(!threeMonths)
-                setSixMonths(sixMonths)
-                setNineMonths(nineMonths)
-                setOneYear(oneYear)
-                setYouDecide(youDecide)
-                
-                console.log ('three months have been handled')
-            }
-        }
-         
+    // Clear the form fields after submission
+    setAmount('');
+    setFrequency('');
+    setDuration('');
+  };
 
   return (
-    <main style={{marginBottom:'30px'}}>
-        <form onSubmit={submit}>
-            <div >
-            <FcLeft/><span>General</span>
+    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+      <h1>User Savings Form</h1>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px', maxWidth: '400px', border: '1px solid #ccc', padding: '20px', borderRadius: '8px' }}>
+        <div>
+          <label htmlFor="amount" style={{ marginBottom: '5px' }}>Amount Saved:</label>
+          <input
+            id="amount"
+            type="number"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }}
+          />
         </div>
-        <div style={{border:'solid 1px lightGrey',width:'300px'}}>
-            <p>I'm Saving</p>
-            <input 
-                type="number"
-                value={amount}
-                onChange={handleAmount}
-                placeholder='Input amount to save regularly'
-             />
+
+        <div>
+          <label htmlFor="frequency" style={{ marginBottom: '5px' }}>Saving Frequency:</label>
+          <select
+            id="frequency"
+            value={frequency}
+            onChange={(e) => setFrequency(e.target.value)}
+            style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }}
+          >
+            <option value="">--Select Frequency--</option>
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+          </select>
         </div>
-        <div style={{border:'solid 1px lightGrey',width:'300px'}}>
-            <p>Every</p>
-            <button onClick={handleDay}>Day</button>
-            <button onClick={handleWeek}>Week</button>
-            <button onClick={handleMonth}>Month</button>
-           <div>
-            <input type="checkbox" name="" id="" /><span>Just this once</span>
-            </div> 
+
+        <div>
+          <label htmlFor="duration" style={{ marginBottom: '5px' }}>Duration (Quarterly):</label>
+          <select
+            id="duration"
+            value={duration}
+            onChange={(e) => setDuration(e.target.value)}
+            style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }}
+          >
+            <option value="">--Select Duration--</option>
+            <option value="q1">Q1 (3 Months)</option>
+            <option value="q2">Q2 (6 Months)</option>
+            <option value="q3">Q3 (9 Months)</option>
+            <option value="q4">Q4 (12 Months)</option>
+          </select>
         </div>
-        <div style={{border:'solid 1px lightGrey',width:'300px'}}>
-            <p>For</p>
-            <button onClick={handleThreeMonths}>3 months</button>
-            <button onClick={handleSixMonths}>6 months</button>
-            <button onClick={handleNineMonths}>9 months</button>
-            <button onClick={handleOneYear}>1 year</button>
-            <button onClick={handleYouDecide}>You decide</button>
-        </div>
-        <button >Continue</button>
-        </form>
-    </main>
-  )
+
+        <button type="submit" style={{ padding: '10px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
+          Add Savings Plan
+        </button>
+      </form>
+
+      <div style={{ marginTop: '30px' }}>
+        <h2>Saved Plans:</h2>
+        {savedData.length === 0 ? (
+          <p>No savings plans have been added yet.</p>
+        ) : (
+          <ul style={{ listStyleType: 'none', padding: 0 }}>
+            {savedData.map((plan) => (
+              <li key={plan.id} style={{ border: '1px solid #eee', padding: '10px', marginBottom: '10px', borderRadius: '4px' }}>
+                <p><strong>Amount:</strong> ${plan.amount.toFixed(2)}</p>
+                <p><strong>Frequency:</strong> {plan.frequency}</p>
+                <p><strong>Duration:</strong> {plan.duration.toUpperCase()}</p>
+                <p><strong>Date Added:</strong> {new Date(plan.dateAdded).toLocaleDateString()}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
 }
 
-export default WithdrawalScheduler
+export default WithdrawalScheduler;
