@@ -1,14 +1,14 @@
 /* For Chrome, Safari, Edge, and Opera */
-/* input::-webkit-outer-spin-button,
+input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-} */
+}
 
 /* For Firefox */
-/* input[type='number'] {
+input[type='number'] {
   -moz-appearance: textfield;
-} */
+}
 
 
 
@@ -19,13 +19,13 @@ input::-webkit-inner-spin-button {
 
 
 
-/* .frequency-buttons-container {
-  display: flex; */
-  /* gap: 10px; 
-  flex-wrap: wrap;  */
-/* } */
+.frequency-buttons-container {
+  display: flex; 
+  gap: 10px; 
+  flex-wrap: wrap;  
+} 
 
-/* .frequency-button {
+.frequency-button {
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -35,54 +35,20 @@ input::-webkit-inner-spin-button {
   transition:
     background-color 0.3s,
     border-color 0.3s;
-} */
+}
 
 /* Hover effect */
-/* .frequency-button:hover {
+.frequency-button:hover {
   background-color: #e0e0e0;
 }
 .frequency-button:active{
   background-color: red;
 } */
 /* Selected state */
-/* .frequency-button.selected {
+.frequency-button.selected {
   background-color: #007bff;
   color: white;
   border-color: #007bff;
-} */
-
-
-
-/* Container for the button group */
-.button-group {
-  display: flex;
-  gap: 10px; /* Adjust spacing between buttons */
-  justify-content: center;
-  margin: 20px;
 }
 
-/* Base button style */
-.button-item {
-  padding: 10px 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f0f0f0;
-  cursor: pointer;
-  font-size: 16px;
-  transition:
-    background-color 0.3s,
-    color 0.3s,
-    border-color 0.3s;
-}
 
-/* Hover state */
-.button-item:hover {
-  background-color: #e0e0e0;
-}
-
-/* Active state */
-.button-item.active {
-  background-color: #007bff; /* Active background color */
-  color: white; /* Active text color */
-  border-color: #007bff; /* Active border color */
-}

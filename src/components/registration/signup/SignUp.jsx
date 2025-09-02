@@ -6,6 +6,7 @@ import { BiUser } from 'react-icons/bi'
 import CryptoJS from 'crypto-js'
 import { TfiEmail } from 'react-icons/tfi'
 import WithdrawalScheduler from '../../withdrawalScheduler/WithdrawalScheduler'
+import ActiveButton from '../../activeButton/ActiveButton'
 
 const SignUp = () => {
 
@@ -57,6 +58,7 @@ const SignUp = () => {
 
   return (
     <main>
+      <ActiveButton/>
       <WithdrawalScheduler/>
       <form onSubmit={submit} style={{display:'flex',gap:'10px'}}>
 
