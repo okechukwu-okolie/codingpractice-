@@ -5,8 +5,8 @@ const ContactCard = ({contacts}) => {
     const {id,Name,Email} = contacts//this is destructuring
 
   return (
-   <div key={id} className="item" style={{display:'flex'}}>
-    <div><img src="https://placehold.co/60x60" alt="" style={{borderRadius:'50%'}} /></div>
+   <div  className="item" style={{display:'flex'}}>
+    <div key={id}><img src="https://placehold.co/60x60" alt="" style={{borderRadius:'50%'}} /></div>
              <div>
                    <div className="content">
                     <div className="header">{Name}</div>
