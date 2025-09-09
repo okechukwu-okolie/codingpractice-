@@ -36,6 +36,8 @@ const App = () => {
   //   },
   // ]
   
+
+  
   return (
     // <Router>
       // <Routes>
@@ -47,6 +49,9 @@ const App = () => {
     // <div>
     //   <SignUp/>
     // </div>
+
+
+
     <div className='ui container'>
       <Header/>
       {/* the callback function use used here to get the data from the child component */}
