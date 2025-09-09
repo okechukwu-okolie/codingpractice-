@@ -8,23 +8,33 @@ import { Router,Routes,Route } from 'react-router-dom'
 // import Scheduler from './components/registration/scheduler/Scheduler.jsx'
 
 const App = () => {
-  const contacts = [
-    {
-      id:1,
-      name:'samuel',
-      email:'samuel@gmail.com'
-    },
-       {
-      id:2,
-      name:'ibrahim',
-      email:'ibrahim@gmail.com'
-    },
-   {
-      id:3,
-      name:'kunle',
-      email:'kunle@gmail.com'
-    },
-  ]
+  const [contacts,useContacts] = useState([])
+
+
+
+  //function in the parent to act as prop for the child. the argument here holds the data that has been carried over to the parent.
+  const addContactHandler =(userData)=>{
+    // console.log(userData)
+    // console.log(contacts)
+    useContacts([...contacts,userData])
+  }
+  // const contacts = [
+  //   {
+  //     id:1,
+  //     name:'samuel',
+  //     email:'samuel@gmail.com'
+  //   },
+  //      {
+  //     id:2,
+  //     name:'ibrahim',
+  //     email:'ibrahim@gmail.com'
+  //   },
+  //  {
+  //     id:3,
+  //     name:'kunle',
+  //     email:'kunle@gmail.com'
+  //   },
+  // ]
   
   return (
     // <Router>
@@ -39,7 +49,8 @@ const App = () => {
     // </div>
     <div className='ui container'>
       <Header/>
-      <AddContact/>
+      {/* the callback function use used here to get the data from the child component */}
+      <AddContact ContactHandler={addContactHandler}/>
       <ContactList contacts={contacts}/>
     </div>
   )

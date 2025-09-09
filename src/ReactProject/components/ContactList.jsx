@@ -2,7 +2,7 @@ import React from 'react'
 import ContactCard from './ContactCard'
 
 const ContactList = ({contacts}) => {
-
+//this is the mapped array that is redendered in this component 
     const renderContactList = contacts.map((contact)=>{
         return (
             <>
