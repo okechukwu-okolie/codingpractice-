@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ContactCard = ({contacts , delete}) => {
+const ContactCard = ({contacts,clickHandler }) => {
 
     const {id, Name,Email} = contacts//this is destructuring
 
@@ -14,10 +14,9 @@ const ContactCard = ({contacts , delete}) => {
                     <div>{Email}</div>
                 </div>
                 <i className='trash alternate outline icon' 
-                style={{color:'red',marginTop:'7px'}} onClick={delete}></i>
+                style={{color:'red',marginTop:'7px'}} 
+                onClick={()=>clickHandler(id)}></i>
 
-                  {/* <i className='trash alternate outline icon' 
-                style={{color:'red',marginTop:'7px'}} onClick={delete}></i> */}
              </div>
     </div>
             </div>

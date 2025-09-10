@@ -11,12 +11,18 @@ import { v4 as uuidv4 } from 'uuid';
 const App = () => {
   //this is the variable that holds the sting variable that represents the contact values being stored; coincidentally called 'contacts'
   const LOCAL_STORAGE_KEY = 'contacts'
-  const [contacts,setContacts] = useState([])
+  // const [contacts,setContacts] = useState([])// this format wasnt used because it makes the initial state always an empty array, however because we want persistency of the data on the browser, we make the retrieved data the first state of the usestate
+    const [contacts, setContacts] = useState(() => {
+    // This function runs only once during the initial render.
+    // It's the ideal place to retrieve and set the initial state from localStorage.
+    const retrieveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    return retrieveContacts || [];
+  });
   
   //function in the parent to act as prop for the child. the argument here holds the data that has been carried over to the parent.
   const addContactHandler =(userData)=>{
-    console.log(userData)
-    console.log(contacts)
+    // console.log(userData)
+    // console.log(contacts)
     setContacts([...contacts, {id:uuidv4(), ...userData}])//creating a new property of id and using the spread operator allows adding that property to the already existing array of userData
   }
 
@@ -25,21 +31,16 @@ const App = () => {
     setContacts(contacts.filter((contact)=>contact.id !== id))
   }
 
+  // //this useeffect and local storage retrieves the value of contact on local storage
+  //   useEffect(()=>{
+  //   const retrieveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+  //   if(retrieveContacts)setContacts(retrieveContacts)
+  // },[])
 
   //this useeffect and local storage stores the value of contact on local storage
   useEffect(()=>{
- localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts))
- console.log(`this is the setItem: ${contacts}`)
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts))
   },[contacts])
-
-
-
-  //this useeffect and local storage retrieves the value of contact on local storage
-    useEffect(()=>{
-    const retrieveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-    console.log(retrieveContacts)
-    if(retrieveContacts){ setContacts(retrieveContacts)}
-  },[])
 
 
 
