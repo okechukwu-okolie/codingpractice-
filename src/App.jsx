@@ -2,12 +2,14 @@ import Header from '../src/ReactProject/components/Header'
 import AddContact from '../src/ReactProject/components/AddContact'
 import ContactList from '../src/ReactProject/components/ContactList'
 import React,{useState,useEffect} from 'react'
+import {uuid} from 'uuidv4'
 // import SignUp from './components/registration/signup/SignUp.jsx'
 // import { Router,Routes,Route } from 'react-router-dom'
 // import SignIn from './components/registration/siginin/SignIn.jsx'
 // import Scheduler from './components/registration/scheduler/Scheduler.jsx'
 
 const App = () => {
+  //this is the variable that holds the sting variable that represents the contact values being stored; coincidentally called 'contacts'
   const LOCAL_STORAGE_KEY = 'contacts'
   const [contacts,setContacts] = useState([])
   
@@ -15,21 +17,22 @@ const App = () => {
   const addContactHandler =(userData)=>{
     // console.log(userData)
     // console.log(contacts)
-    setContacts([...contacts,userData])
+    setContacts([...contacts, {id:uuid, ...userData}])
   }
-
-  //this useeffect and local storage retrieves the value of contact on local storage
-    useEffect(()=>{
-    const retrieveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-    if(retrieveContacts) setContacts(retrieveContacts)
-  },[])
-
-
-
   //this useeffect and local storage stores the value of contact on local storage
   useEffect(()=>{
  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts))
   },[contacts])
+
+  //this useeffect and local storage retrieves the value of contact on local storage
+    useEffect(()=>{
+    const retrieveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+    console.log(retrieveContacts)
+    if(retrieveContacts){ setContacts(retrieveContacts)}
+  },[])
+
+
+
 
 
 

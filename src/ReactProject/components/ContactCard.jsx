@@ -6,7 +6,8 @@ const ContactCard = ({contacts}) => {
 
   return (
    <div  className="item" style={{display:'flex'}}>
-    <div key={id}><img src="https://placehold.co/60x60" alt="" style={{borderRadius:'50%'}} /></div>
+    <div  key={id}>
+    <div><img src="https://placehold.co/60x60" alt="" style={{borderRadius:'50%'}} /></div>
              <div>
                    <div className="content">
                     <div className="header">{Name}</div>
@@ -15,6 +16,7 @@ const ContactCard = ({contacts}) => {
                 <i className='trash alternate outline icon' 
                 style={{color:'red',marginTop:'7px'}}></i>
              </div>
+    </div>
             </div>
   )
 }

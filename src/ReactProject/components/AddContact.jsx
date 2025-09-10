@@ -12,7 +12,7 @@ const AddContact = ({ContactHandler}) => {
         return;
       }
       const user ={
-        id:Date.now(),
+       // id:Date.now(),                    originally this property and its value was added to provide a unique id for each user information
         Name,
         Email,
       }
