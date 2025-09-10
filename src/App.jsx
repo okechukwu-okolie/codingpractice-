@@ -2,7 +2,7 @@ import Header from '../src/ReactProject/components/Header'
 import AddContact from '../src/ReactProject/components/AddContact'
 import ContactList from '../src/ReactProject/components/ContactList'
 import React,{useState,useEffect} from 'react'
-import {uuid} from 'uuidv4'
+import { v4 as uuidv4 } from 'uuid';
 // import SignUp from './components/registration/signup/SignUp.jsx'
 // import { Router,Routes,Route } from 'react-router-dom'
 // import SignIn from './components/registration/siginin/SignIn.jsx'
@@ -15,14 +15,24 @@ const App = () => {
   
   //function in the parent to act as prop for the child. the argument here holds the data that has been carried over to the parent.
   const addContactHandler =(userData)=>{
-    // console.log(userData)
-    // console.log(contacts)
-    setContacts([...contacts, {id:uuid, ...userData}])
+    console.log(userData)
+    console.log(contacts)
+    setContacts([...contacts, {id:uuidv4(), ...userData}])//creating a new property of id and using the spread operator allows adding that property to the already existing array of userData
   }
+
+
+  const removeContactHandler = (id)=>{
+    setContacts(contacts.filter((contact)=>contact.id !== id))
+  }
+
+
   //this useeffect and local storage stores the value of contact on local storage
   useEffect(()=>{
  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts))
+ console.log(`this is the setItem: ${contacts}`)
   },[contacts])
+
+
 
   //this useeffect and local storage retrieves the value of contact on local storage
     useEffect(()=>{
@@ -76,7 +86,7 @@ const App = () => {
       <Header/>
       {/* the callback function use used here to get the data from the child component */}
       <AddContact ContactHandler={addContactHandler}/>
-      <ContactList contacts={contacts}/>
+      <ContactList contacts={contacts} getContactId ={removeContactHandler}/>
     </div>
   )
 }

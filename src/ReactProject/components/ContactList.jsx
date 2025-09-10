@@ -1,12 +1,12 @@
 import React from 'react'
 import ContactCard from './ContactCard'
 
-const ContactList = ({contacts}) => {
+const ContactList = ({contacts,delete}) => {
 //this is the mapped array that is redendered in this component 
     const renderContactList = contacts.map((contact)=>{
         return (
             <>
-            <ContactCard contacts = {contact}/>
+            <ContactCard contacts = {contact} delete={delete}/>
             </>
         )
     })
