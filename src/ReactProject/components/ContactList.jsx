@@ -8,6 +8,23 @@ const deleteContactHandler = (id)=>{
   // contacts.filter((contact)=> contact.id === id)
   getContactId(id)
 }
+// const contacts = [
+//     {
+//       id:1,
+//       name:'samuel',
+//       email:'samuel@gmail.com'
+//     },
+//        {
+//       id:2,
+//       name:'ibrahim',
+//       email:'ibrahim@gmail.com'
+//     },
+//    {
+//       id:3,
+//       name:'kunle',
+//       email:'kunle@gmail.com'
+//     },
+//   ]
 
 
 

@@ -3,8 +3,8 @@ import AddContact from '../src/ReactProject/components/AddContact'
 import ContactList from '../src/ReactProject/components/ContactList'
 import React,{useState,useEffect} from 'react'
 import { v4 as uuidv4 } from 'uuid';
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
 // import SignUp from './components/registration/signup/SignUp.jsx'
-// import { Router,Routes,Route } from 'react-router-dom'
 // import SignIn from './components/registration/siginin/SignIn.jsx'
 // import Scheduler from './components/registration/scheduler/Scheduler.jsx'
 
@@ -83,12 +83,16 @@ const App = () => {
 
 
 
-    <div className='ui container'>
-      <Header/>
-      {/* the callback function use used here to get the data from the child component */}
+    
+        <div className='ui container'>
+
+        <Header/>
+        {/* the callback function use used here to get the data from the child component */}
       <AddContact ContactHandler={addContactHandler}/>
       <ContactList contacts={contacts} getContactId ={removeContactHandler}/>
-    </div>
+
+        </div>
+    
   )
 }
 
