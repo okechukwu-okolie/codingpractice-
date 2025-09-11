@@ -32,12 +32,6 @@ const App = () => {
     setContacts(contacts.filter((contact)=>contact.id !== id))
   }
 
-  // //this useeffect and local storage retrieves the value of contact on local storage
-  //   useEffect(()=>{
-  //   const retrieveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-  //   if(retrieveContacts)setContacts(retrieveContacts)
-  // },[])
-
   //this useeffect and local storage stores the value of contact on local storage
   useEffect(()=>{
   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts))

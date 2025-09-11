@@ -5,6 +5,7 @@ const ContactCard = ({contacts,clickHandler }) => {
   const navigate =useNavigate()
     const {id, Name,Email} = contacts//this is destructuring
 
+    //this is a function that is activated on a click action. it moves to another page and carries data from this page to the other page where it uses useLocation to access the data
    const singleContactInfo = ()=>{
      navigate(`/contact/${id}`, {state:{user:contacts.id}})
    }
