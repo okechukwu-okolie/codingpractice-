@@ -33,7 +33,7 @@ const App = () => {
 
   const removeContactHandler = (id)=>{
 
-    navigate('/remove-page')
+    // navigate('/remove-page')
 
    
     setContacts(contacts.filter((contact)=>contact.id !== id))
