@@ -7,7 +7,6 @@ const ContactList = ({contacts,getContactId}) => {
 
 
 const deleteContactHandler = (id)=>{
-  // contacts.filter((contact)=> contact.id === id)
   getContactId(id)
 }
 // const contacts = [

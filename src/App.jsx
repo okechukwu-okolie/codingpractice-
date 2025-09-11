@@ -3,13 +3,15 @@ import AddContact from '../src/ReactProject/components/AddContact'
 import ContactList from '../src/ReactProject/components/ContactList'
 import React,{useState,useEffect} from 'react'
 import { v4 as uuidv4 } from 'uuid';// this provides unique id for each item in the array
-import {Routes,Route} from 'react-router-dom'
+import {Routes,Route, useNavigate} from 'react-router-dom'
 import ContactDetail from './ReactProject/components/ContactDetail';
+import Remove from './ReactProject/components/Remove';
 // import SignUp from './components/registration/signup/SignUp.jsx'
 // import SignIn from './components/registration/siginin/SignIn.jsx'
 // import Scheduler from './components/registration/scheduler/Scheduler.jsx'
 
 const App = () => {
+  const navigate = useNavigate()
   //this is the variable that holds the sting variable that represents the contact values being stored; coincidentally called 'contacts'
   const LOCAL_STORAGE_KEY = 'contacts'
   // const [contacts,setContacts] = useState([])// this format wasnt used because it makes the initial state always an empty array, however because we want persistency of the data on the browser, we make the retrieved data the first state of the usestate
@@ -28,9 +30,19 @@ const App = () => {
   }
 
 
+
   const removeContactHandler = (id)=>{
+
+    navigate('/remove-page')
+
+   
     setContacts(contacts.filter((contact)=>contact.id !== id))
+     
   }
+  
+  
+  
+
 
   //this useeffect and local storage stores the value of contact on local storage
   useEffect(()=>{
@@ -88,6 +100,8 @@ const App = () => {
             <Route path='/' element={<ContactList contacts={contacts} getContactId ={removeContactHandler}/>}/>
 
             <Route path='/contact/:id' element={<ContactDetail contacts ={contacts}/>}/>
+
+            <Route path='/remove-page' element={<Remove />}/>
 
         </Routes>
         {/* the callback function use used here to get the data from the child component */}
