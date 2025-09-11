@@ -1,7 +1,9 @@
 import React from 'react'
 import ContactCard from './ContactCard'
+import { Link, useNavigate } from 'react-router-dom'
 
 const ContactList = ({contacts,getContactId}) => {
+  const navigate = useNavigate()
 
 
 const deleteContactHandler = (id)=>{
@@ -37,8 +39,15 @@ const deleteContactHandler = (id)=>{
     })
 
   return (
-    <div className='ui celled list' >
+    <div className="main">
+      <h2>Contact List 
+        <Link to={'/add-contact'}><button className='ui blue right floated button'>Add</button></Link>
+        <button className='ui green right floated button' onClick={()=>navigate(-1)}>back</button>
+        <button className='ui pink right floated button' onClick={()=>navigate(+1)}>forward</button>
+      </h2>
+      <div className='ui celled list' >
       {renderContactList}
+    </div>
     </div>
   )
 }

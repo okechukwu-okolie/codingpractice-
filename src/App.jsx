@@ -2,8 +2,9 @@ import Header from '../src/ReactProject/components/Header'
 import AddContact from '../src/ReactProject/components/AddContact'
 import ContactList from '../src/ReactProject/components/ContactList'
 import React,{useState,useEffect} from 'react'
-import { v4 as uuidv4 } from 'uuid';
-import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid';// this provides unique id for each item in the array
+import {Routes,Route} from 'react-router-dom'
+import ContactDetail from './ReactProject/components/ContactDetail';
 // import SignUp from './components/registration/signup/SignUp.jsx'
 // import SignIn from './components/registration/siginin/SignIn.jsx'
 // import Scheduler from './components/registration/scheduler/Scheduler.jsx'
@@ -85,12 +86,18 @@ const App = () => {
 
     
         <div className='ui container'>
-
         <Header/>
-        {/* the callback function use used here to get the data from the child component */}
-      <AddContact ContactHandler={addContactHandler}/>
-      <ContactList contacts={contacts} getContactId ={removeContactHandler}/>
+        <Routes>
+            <Route path='/add-contact' element={ <AddContact ContactHandler={addContactHandler}/>}/>
+         
 
+            <Route path='/' element={<ContactList contacts={contacts} getContactId ={removeContactHandler}/>}/>
+
+            <Route path='/contact/:id' element={<ContactDetail contacts ={contacts}/>}/>
+
+        </Routes>
+        {/* the callback function use used here to get the data from the child component */}
+      
         </div>
     
   )
