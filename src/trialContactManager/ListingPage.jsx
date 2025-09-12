@@ -14,7 +14,8 @@ const ListingPage = ({UserInfo}) => {
         </h3>
         <div>
             {UserInfo.map((userInfo)=>{
-        return <UserPage Info={userInfo} key={userInfo.id}/>// the key is added in the component directly.
+        return <UserPage Info={userInfo} key={userInfo.id}/>
+    })}
         </div>
     </div>
   )
