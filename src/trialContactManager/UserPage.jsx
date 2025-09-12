@@ -1,15 +1,15 @@
 import React from 'react'
 
-const UserPage = ({UserInfo}) => {
+const UserPage = ({Info}) => {
+    const {name,email} = Info
     
-    console.log('this is the single page:', UserInfo)
   return (
-    <div>
+    <div >
         <img src="https://placehold.co/60x60" alt="" style={{borderRadius:'50%'}} />
-      <ul>
-        <li>{name}</li>
-        <li>{email}</li>
-      </ul>
+      <div>
+        <div>{name}</div>
+        <div>{email}</div>
+      </div>
     </div>
   )
 }
