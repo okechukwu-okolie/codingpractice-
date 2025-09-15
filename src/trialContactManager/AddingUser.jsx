@@ -1,13 +1,14 @@
 import React,{useState} from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
-const AddingUser = ({CollectUserInfo}) => {
+const AddingUser = ({CollectUserInfo, userInfo,editingName,editingEmail}) => {
     const [name, setName] = useState('')
     const [email,setEmail] = useState('')
    
 
     const handleSubmit =(e)=>{
         e.preventDefault()
+        console.log(e)
         if(!name || !email){
             alert('Input the name and email of the user')
             return;
@@ -22,6 +23,8 @@ const AddingUser = ({CollectUserInfo}) => {
         setEmail('')
 
     }
+   
+    
 
   return (
     <div>
@@ -31,14 +34,16 @@ const AddingUser = ({CollectUserInfo}) => {
             <input type="text"
                 value={name}
                 placeholder='....input your name here' 
-                onChange={(e)=>setName(e.target.value)}/>
+                onChange={(e)=>setName(e.target.value)}
+                id='username'/>
         </div>
 
         <div className="ui fluid icon input">
             <input type="email"
                 value={email}
                 placeholder='....input your email here'
-                onChange={(e)=>setEmail(e.target.value)} />
+                onChange={(e)=>setEmail(e.target.value)} 
+                id='userEmail'/>
         </div>
         <button  className="ui yellow button">Add User Detail</button>
       </form>
