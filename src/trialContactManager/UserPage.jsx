@@ -2,7 +2,7 @@ import { EditFilled } from '@ant-design/icons'
 import React from 'react'
 import { BiEditAlt, BiTrash } from 'react-icons/bi'
 
-const UserPage = ({Info,HandleDelete,HandleEdit}) => {
+const UserPage = ({Info,HandleDelete,handleEdit}) => {
     const {id,name,email} = Info
 
 
@@ -20,7 +20,7 @@ const UserPage = ({Info,HandleDelete,HandleEdit}) => {
 
         <div>
         <BiTrash onClick={()=>HandleDelete(id)}/>
-        <BiEditAlt onClick={()=>HandleEdit(id)}/>
+        <BiEditAlt onClick={()=>handleEdit(id)} />
        </div>
       </div>
        </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import UserPage from './UserPage'
 
-const ListingPage = ({UserInfo, HandleDelete, HandleEdit}) => {
+const ListingPage = ({UserInfo, HandleDelete, handleEdit}) => {
     
 
     // const UserDetailsList = UserInfo.map((userInfo)=>{
@@ -17,7 +17,7 @@ const ListingPage = ({UserInfo, HandleDelete, HandleEdit}) => {
         return <UserPage Info={userInfo} 
                         key={userInfo.id} 
                         HandleDelete = {HandleDelete}
-                        HandleEdit={HandleEdit} 
+                        handleEdit={handleEdit} 
                         
                          />
     })}

@@ -4,14 +4,15 @@ import AddingUser from './AddingUser'
 
 const Main = () => {
     const [userInfo, setUserInfo] = useState([])
-    const [editingName, setEditingName] = useState(null)
-    const [editingEmail, setEditingEmail] = useState(null)
+    const [name,setName]=useState('')
+    const [email,setEmail]=useState('')
+    
     
 
    
    
 
-    //this is a prop from the parent to the child,a callbackfunction that updates a usestate
+    // //this is a prop from the parent to the child,a callbackfunction that updates a usestate
     const collectUserInfo =(userDetail)=>{
         setUserInfo([...userInfo, userDetail])
     }
@@ -21,19 +22,21 @@ const Main = () => {
      
     }
 
-    const handleEdit = (id)=>{
-      const textToEdit = userInfo.filter((user)=>user.id === id)
-      setEditingName(textToEdit[0].name)
-      setEditingEmail(textToEdit[0].email)
+    const handleEdit =(id)=>{
+      const editText = userInfo.find(user=> user.id === id)
+      handleInputs(name,email)
+    }
+    const handleInputs=(nameInput,emailInput)=>{
+      setName(nameInput)
+      setEmail(emailInput)
     }
 
   return (
     <div>
-        <AddingUser CollectUserInfo = {collectUserInfo} 
-                    userInfo = {userInfo}
-                    editingName = {editingName}
-                    editingEmail = {editingEmail}/>
-        <ListingPage UserInfo = {userInfo} HandleDelete = {handleDelete} HandleEdit = {handleEdit} />
+        <AddingUser CollectUserInfo = {collectUserInfo} handleInputs={handleInputs}/> 
+        <ListingPage UserInfo = {userInfo} HandleDelete = {handleDelete} handleEdit={handleEdit}/>
+       
+       
     </div>
   )
 }

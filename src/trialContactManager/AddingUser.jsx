@@ -1,14 +1,13 @@
 import React,{useState} from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
-const AddingUser = ({CollectUserInfo, userInfo,editingName,editingEmail}) => {
+const AddingUser = ({CollectUserInfo, handleInputs}) => {
     const [name, setName] = useState('')
     const [email,setEmail] = useState('')
    
 
     const handleSubmit =(e)=>{
         e.preventDefault()
-        console.log(e)
         if(!name || !email){
             alert('Input the name and email of the user')
             return;
@@ -23,7 +22,7 @@ const AddingUser = ({CollectUserInfo, userInfo,editingName,editingEmail}) => {
         setEmail('')
 
     }
-   
+   handleInputs(name,email)
     
 
   return (
