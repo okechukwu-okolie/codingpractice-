@@ -1,0 +1,12 @@
+{
+  "name": "learning-nodejs",
+  "version": "1.0.0",
+  "description": "intendednto learn about node js",
+  "license": "ISC",
+  "author": "samuel okolie",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

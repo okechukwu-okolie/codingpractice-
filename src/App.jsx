@@ -95,7 +95,8 @@ import Main from './trialContactManager/Main'
 const App = () => {
   return (
     <div>
-      <Main/>
+      {/* <Main/> */}
+
     </div>
   )
 }
