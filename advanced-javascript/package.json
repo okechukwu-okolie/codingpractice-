@@ -1,0 +1,15 @@
+{
+  "name": "advanced-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "database.js",
+  "scripts": {
+    "start": "node db.js"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "^0.3.15"
+  }
+}
