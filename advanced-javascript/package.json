@@ -5,9 +5,9 @@
   "license": "ISC",
   "author": "",
   "type": "module",
-  "main": "database.js",
+  "main": "db.js",
   "scripts": {
-    "start": "node db.js"
+    "start": "node db2.js"
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.3.15"
